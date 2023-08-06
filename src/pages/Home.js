@@ -13,6 +13,11 @@ const Home = () => {
     const headText = `${curDate.getFullYear()}년 ${curDate.getMonth() + 1}월`; //getMonth에서 1월은 0월로 나옴. 따라서 + 1
 
     useEffect(() => {
+        const titleElement = document.getElementsByTagName('title')[0];
+        titleElement.innerHTML = `감정 일기장`;
+    }, []);
+
+    useEffect(() => {
         if (diaryList.length >= 1) {
             const firstDay = new Date(curDate.getFullYear(), curDate.getMonth(), 1).getTime();
             const lastDay = new Date(curDate.getFullYear(), curDate.getMonth() + 1, 0, 23, 59, 59).getTime();
